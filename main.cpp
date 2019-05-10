@@ -4,6 +4,7 @@ using namespace std;
 char** crearMatriz(int,int,char*);
 void printMatrix(char** matrix,int fila, int colum);
 void freeMatrix(char**& matrix,int fila);
+void Ejercicio1(char** matrix);
 
 int main(){
     char respuesta = 'S';
@@ -46,17 +47,24 @@ int main(){
     return 0;
 }
 
+void Ejercicio1(char** matrix){
+    
+}
+
+
 char** crearMatriz(int fila, int column, char* array){
     char** matrix = NULL;
-    matrix = new char*[size];
+    matrix = new char*[fila];
     for (int i = 0; i < fila; i++){
-        if (i == 0)
+        if (i == 0){
             matrix[i] = array;
-        matrix[i] = new char[column];
+        }else{
+            matrix[i] = new char[column];
+        }
     }
     for (int i = 1; i < fila; i++){
         for (int j = 0; j < column; j++){
-            cout << matrix[i][j] = ' ';
+            matrix[i][j] = ' ';
         }
     }
     return matrix;
