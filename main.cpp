@@ -65,6 +65,24 @@ void Ejercicio1(char** matrix, int fila, int colum){
                     matrix[i][j] = '^';
                 } 
             }
+            if (j == 0 || j == colum - 1){
+                if (j == 0){
+                    if (matrix[i-1][j] == '^' && matrix[i-1][j+1] == '^'){
+                        matrix[i][j] = '^';
+                    }
+                    if (matrix[i-1][j] == '.' && matrix[i-1][j+1] == '^'){
+                        matrix[i][j] = '^';
+                    }
+                }
+                if (j == colum - 1){
+                    if (matrix[i -1][j] == '^' && matrix[i-1][j-1] == '^'){
+                        matrix[i][j] = '^';
+                    }
+                    if (matrix[i -1][j] == '.' && matrix[i-1][j-1] == '^'){
+                        matrix[i][j] = '^';
+                    }
+                }
+            }
         }
    }
 }
