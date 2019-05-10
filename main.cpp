@@ -20,7 +20,19 @@ int main(){
                     cout << "Ingrese el numero de columnas que utilizara:";
                     cin >> numColum;
                 }
-                
+                char* temp = new char[numColum];
+                char caracterTemp = ' ';
+                for (int i = 0; i < numColum; i++){
+                    cout << "Ingrese el caracter:";
+                    cin >> caracterTemp;
+                    temp[i] = caracterTemp;
+                }
+                int numFila = 0;
+                while (numFila <= 0){
+                    cout << "Ingrese el numero de filas:";
+                    cin >> numFila;
+                }
+                char** matrix = NULL;
                 break;
             }
     }
@@ -28,5 +40,8 @@ int main(){
     cin >>  respuesta;
     }
     return 0;
+}
+
+char** crearMatriz(int size){
 }
 

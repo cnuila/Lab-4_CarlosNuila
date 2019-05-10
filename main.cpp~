@@ -15,6 +15,12 @@ int main(){
     switch(opcion){
         case 1:
             {
+                int numColum = 0;
+                while (numColum <= 0){
+                    cout << "Ingrese el numero de columnas que utilizara:";
+                    cin >> numColum;
+                }
+                
                 break;
             }
     }
