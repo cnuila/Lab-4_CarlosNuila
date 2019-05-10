@@ -4,7 +4,7 @@ using namespace std;
 char** crearMatriz(int,int,char*);
 void printMatrix(char** matrix,int fila, int colum);
 void freeMatrix(char**& matrix,int fila);
-void Ejercicio1(char** matrix);
+void Ejercicio1(char**,int,int);
 
 int main(){
     char respuesta = 'S';
@@ -35,19 +35,19 @@ int main(){
                 }
                 char** matrix = NULL;
                 matrix = crearMatriz(numFila,numColum,temp);
-                printMatrix(matrix,numFila,numColum);
-                freeMatrix(matrix,numFila);
-                delete[] temp;
+                Ejercicio1(matrix, numFila,numColum);
                 break;
             }
     }
     cout << "¿Desea volver a hacerlo[s/n]?: ";
     cin >>  respuesta;
     }
+    freeMatrix(matrix,numFila);
     return 0;
 }
 
 void Ejercicio1(char** matrix, int fila, int colum){
+    int contSeguro = 0;
    for (int i = 1; i < fila; i++){
         for (int j = 0; j < colum; j++){
             matrix[i][j] = '.';
@@ -85,6 +85,16 @@ void Ejercicio1(char** matrix, int fila, int colum){
             }
         }
    }
+   printMatrix(matrix,fila,colum);
+   for (int i = 0; i < fila; i++){
+       for (int j = 0; j < colum; j++){
+            if (matrix[i][j] == '.'){
+                contSeguro++;
+            }
+       }
+   }
+   cout << "El numero total de azulejos seguro es " << contSeguro << endl; 
+
 }
 
 
