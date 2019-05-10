@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
 char** crearMatriz(int,int,char*);
@@ -26,8 +27,12 @@ int main(){
                     cin >> numColum;
                 }
                 char* temp = new char[numColum];
-                cout << "Ingrese la primera fila: ";
-                cin >> temp;
+                string primerFila = "";
+                while (primeraFila.size() < numColum){
+                    cout << "Ingrese la primera fila: ";
+                    cin >> primeraFila;
+                }
+                temp = primeraFila.c_str();
                 int numFila = 0;
                 while (numFila <= 0){
                     cout << "Ingrese el numero de filas:";
@@ -36,13 +41,13 @@ int main(){
                 char** matrix = NULL;
                 matrix = crearMatriz(numFila,numColum,temp);
                 Ejercicio1(matrix, numFila,numColum);
+                freeMatrix(matrix,numFila);
                 break;
             }
     }
     cout << "¿Desea volver a hacerlo[s/n]?: ";
     cin >>  respuesta;
     }
-    freeMatrix(matrix,numFila);
     return 0;
 }
 
