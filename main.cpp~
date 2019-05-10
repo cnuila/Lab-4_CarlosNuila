@@ -65,3 +65,17 @@ void printMatrix(char** matrix,int fila, int colum){
     }
 }
 
+void freeMatrix(char**& matrix,int fila){
+    for (int i = 0; i < fila; i++){
+        if (matrix[i] != NULL){
+            delete[] matrix[i];
+            matrix[i] = NULL;
+        }
+    }
+    if (matrix != NULL){
+        delete[] matrix;
+        matrix = NULL;
+    }
+}
+
+

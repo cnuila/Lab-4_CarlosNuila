@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+char** crearMatriz(int,int,char*);
+
 int main(){
     char respuesta = 'S';
     while (respuesta == 'S' || respuesta == 's'){
@@ -40,7 +42,7 @@ int main(){
     return 0;
 }
 
-char** crearMatriz(int fila, int column, int* array){
+char** crearMatriz(int fila, int column, char* array){
     char** matrix = NULL;
     matrix = new char*[size];
     for (int i = 0; i < fila; i++){
