@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 
-char** crearMatriz(int,int,char*);
+char** crearMatriz(int,int,string);
 void printMatrix(char** matrix,int fila, int colum);
 void freeMatrix(char**& matrix,int fila);
 void Ejercicio1(char**,int,int);
@@ -26,20 +26,19 @@ int main(){
                     cout << "Ingrese el numero de columnas que utilizara:";
                     cin >> numColum;
                 }
-                char* temp = new char[numColum];
-                string primerFila = "";
+                string primeraFila = "";
                 while (primeraFila.size() < numColum){
                     cout << "Ingrese la primera fila: ";
+                    primeraFila = "";
                     cin >> primeraFila;
                 }
-                temp = primeraFila.c_str();
                 int numFila = 0;
                 while (numFila <= 0){
                     cout << "Ingrese el numero de filas:";
                     cin >> numFila;
                 }
                 char** matrix = NULL;
-                matrix = crearMatriz(numFila,numColum,temp);
+                matrix = crearMatriz(numFila,numColum,primeraFila);
                 Ejercicio1(matrix, numFila,numColum);
                 freeMatrix(matrix,numFila);
                 break;
@@ -103,7 +102,7 @@ void Ejercicio1(char** matrix, int fila, int colum){
 }
 
 
-char** crearMatriz(int fila, int column, char* array){
+char** crearMatriz(int fila, int column, string primeraFila){
     char** matrix = NULL;
     matrix = new char*[fila];
     for (int i = 0; i < fila; i++){
@@ -113,9 +112,15 @@ char** crearMatriz(int fila, int column, char* array){
             matrix[i] = new char[column];
         }
     }
-    for (int i = 1; i < fila; i++){
-        for (int j = 0; j < column; j++){
-            matrix[i][j] = ' ';
+    for (int i = 0; i < fila; i++){
+        if (i == 0){
+            for(int j = 0;j < primeraFila.size();j++){
+                matrix[i][j] = primeraFila.at(j);
+            }
+        } else {
+            for (int j = 0; j < column; j++){
+                matrix[i][j] = ' ';
+            }
         }
     }
     return matrix;
