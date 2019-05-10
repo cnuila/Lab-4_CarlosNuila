@@ -54,7 +54,7 @@ char** crearMatriz(int fila, int column, char* array){
             matrix[i] = array;
         matrix[i] = new char[column];
     }
-    for (int i = 1; i < filla; i++){
+    for (int i = 1; i < fila; i++){
         for (int j = 0; j < column; j++){
             cout << matrix[i][j] = ' ';
         }
