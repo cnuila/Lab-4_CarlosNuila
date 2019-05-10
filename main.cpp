@@ -2,6 +2,8 @@
 using namespace std;
 
 char** crearMatriz(int,int,char*);
+void printMatrix(char** matrix,int fila, int colum);
+void freeMatrix(char**& matrix,int fila);
 
 int main(){
     char respuesta = 'S';
@@ -31,7 +33,9 @@ int main(){
                     cin >> numFila;
                 }
                 char** matrix = NULL;
-                
+                matrix = crearMatriz(numFila,numColum,temp);
+                printMatrix(matrix,numFila,numColum);
+                freeMatrix(matrix,numFila);
                 delete[] temp;
                 break;
             }
