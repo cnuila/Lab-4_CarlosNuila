@@ -21,18 +21,16 @@ int main(){
                     cin >> numColum;
                 }
                 char* temp = new char[numColum];
-                char caracterTemp = ' ';
-                for (int i = 0; i < numColum; i++){
-                    cout << "Ingrese el caracter:";
-                    cin >> caracterTemp;
-                    temp[i] = caracterTemp;
-                }
+                cout << "Ingrese la primera fila: ";
+                cin >> temp;
                 int numFila = 0;
                 while (numFila <= 0){
                     cout << "Ingrese el numero de filas:";
                     cin >> numFila;
                 }
                 char** matrix = NULL;
+                
+                delete[] temp;
                 break;
             }
     }
@@ -42,6 +40,42 @@ int main(){
     return 0;
 }
 
-char** crearMatriz(int size){
+char** crearMatriz(int fila, int column, int* array){
+    char** matrix = NULL;
+    matrix = new char*[size];
+    for (int i = 0; i < fila; i++){
+        if (i == 0)
+            matrix[i] = array;
+        matrix[i] = new char[column];
+    }
+    for (int i = 1; i < filla; i++){
+        for (int j = 0; j < column; j++){
+            cout << matrix[i][j] = ' ';
+        }
+    }
+    return matrix;
 }
+
+void printMatrix(char** matrix,int fila, int colum){
+    for (int i = 0; i < fila; i++){
+        for  (int j = 0; j < colum; j++){
+            cout << matrix[i][j] << " ";
+        }
+        cout<<endl;
+    }
+}
+
+void freeMatrix(char**& matrix,int fila){
+    for (int i = 0; i < fila; i++){
+        if (matrix[i] != NULL){
+            delete[] matrix[i];
+            matrix[i] = NULL;
+        }
+    }
+    if (matrix != NULL){
+        delete[] matrix;
+        matrix = NULL;
+    }
+}
+
 

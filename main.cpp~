@@ -20,7 +20,17 @@ int main(){
                     cout << "Ingrese el numero de columnas que utilizara:";
                     cin >> numColum;
                 }
+                char* temp = new char[numColum];
+                cout << "Ingrese la primera fila: ";
+                cin >> temp;
+                int numFila = 0;
+                while (numFila <= 0){
+                    cout << "Ingrese el numero de filas:";
+                    cin >> numFila;
+                }
+                char** matrix = NULL;
                 
+                delete[] temp;
                 break;
             }
     }
@@ -28,5 +38,30 @@ int main(){
     cin >>  respuesta;
     }
     return 0;
+}
+
+char** crearMatriz(int fila, int column, int* array){
+    char** matrix = NULL;
+    matrix = new char*[size];
+    for (int i = 0; i < fila; i++){
+        if (i == 0)
+            matrix[i] = array;
+        matrix[i] = new char[column];
+    }
+    for (int i = 1; i < filla; i++){
+        for (int j = 0; j < column; j++){
+            cout << matrix[i][j] = ' ';
+        }
+    }
+    return matrix;
+}
+
+void printMatrix(char** matrix,int fila, int colum){
+    for (int i = 0; i < fila; i++){
+        for  (int j = 0; j < colum; j++){
+            cout << matrix[i][j] << " ";
+        }
+        cout<<endl;
+    }
 }
 
